@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Arduino: Seguidor Solar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1><p class="degradado-texto"><b>MultiTECH</b></p></h1>
+    </header>
+    <main>
+
+        <div class="intro">
+            <h2><p class="degradado-texto">Seguidor Solar</p></h2>
+            <div class="icon-container">
+                <img src="assets/icons/energy.svg" alt="energy SVG">
+            </div>
+            <div class="button-container">
+                <button onclick="scrollToSection('benefits')">Beneficios</button>
+                <button onclick="scrollToSection('components')">Componentes</button>
+                <button onclick="scrollToSection('codigo')">Código</button>
+            </div>
+
+            <section class="intro">
+
+                <h2></h2>
+                <p>Las <span class="highlight"><b>Energías Renovables</b></span> representan la fuente de <span class="highlight2"><b>energía</b></span> más <span class="highlight"><b>ecologica</b></span> y <span class="highlight"><b>sostenible</b></span> para el planeta y su ecosistema</p>
+                <p>Para maximizar la eficiencia en la captación de la energía solar que proviene del sol, se desarrollan técnicas y tecnologías avanzadas como los <span class="degradado-texto"><b>seguidores solares</b></span> que optimizan la orientación de los paneles solares para recibir y captar la máxima irradiación solar a lo largo del día</p>
+            </section>
+            <hr class="shadow">
+        </div>
+        
+    <section class="solar-tracker">
+        <div class="detectable-area">
+            <div class="soporte">
+                <img src="assets/icons/soporte.svg" alt="Soporte">
+            </div>
+            <div class="solar-panel">
+                <div class="grid"></div>
+            </div>
+            <div class="sun"></div>
+        </div>
+    </section>
+    <hr class="shadow">
+
+
+        <section  id="benefits" class="benefits">
+            <div class="container">
+                <div class="left-side">
+                    <p><i><b>Al mejorar la eficiencia de los paneles solares  los seguidores solares incrementan la producción de energía renovable reduciendo la dependencia de combustibles fósiles y las emisiones de gases de efecto invernadero ayudando a proteger el medio ambiente</b></i></p>
+                </div>
+                <div class="right-side">
+                    <img src="assets/icons/hoja.svg" alt="Icono">
+                </div>
+            </div>
+    
+            <div class="container_right">
+                <div class="left-side_r">
+                    <img src="assets/icons/pluslife.png" alt="Icono">
+                </div>
+                <div class="right-side_r">
+                    <p><i><b>Los Seguidores Solares incrementan la eficiencia y la producción de energía reduciendo el estrés térmico y mecánico en los paneles lo que puede extender su vida útil y disminuir el desgaste y las posibles fallas</b></i></p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="components" class="components">
+            <h2>Componentes del Proyecto</h2>
+            <div class="component-block">
+                <img src="assets/icons/LDR.svg" alt="Resistencias LDR">
+                <p><b>Resistencias LDR:</b> Cuatro sensores que detectan la intensidad de la luz solar</p>
+            </div>
+            <div class="component-block">
+                <img src="assets/icons/servo.svg" alt="Servo Motores">
+                <p><b>Servo Motores:</b> Dispositivos que ajustan la posición del panel</p>
+            </div>
+            <div class="component-block">
+                <img src="assets/icons/arduino.svg" alt="Arduino">
+                <p><b>Arduino:</b> Microcontrolador que controla todo el sistema</p>
+            </div>
+            <div class="component-block">
+                <img src="assets/icons/oled.svg" alt="Pantalla OLED">
+                <p><b>Pantalla OLED:</b> Muestra la información relevante del sistema</p>
+            
+            </div>
+            <hr class="shadow">
+        </section>
+
+
+        <section class="circuit">
+            
+            <h2 class="degradado-texto2"><b>Circuito Lazo Cerrado</b></h2>
+                <div class="diagramaz">
+                    <img src="assets/icons/diagramaxpng.png" alt="energy SVG" class="centered-image">
+                </div>
+                <p class="circuit-description">Este proyecto implementa un sistema de seguimiento solar utilizando un Arduino Uno  dos servomotores y cuatro sensores de luz (LDR) Los sensores de luz  conocidos como resistores dependientes de luz varían su resistencia en función de la intensidad lumínica recibida permitiendo determinar la posición relativa del sol</p>
+                <p class="circuit-description">El objetivo es mantener un panel solar siempre orientado hacia el sol maximizando así la captación de energía solar La estructura del sistema se basa en un lazo cerrado donde la señal de error generada por la diferencia en la luminosidad detectada por los LDRs se utiliza para ajustar la posición de los servomotores Esto asegura una corrección constante y precisa optimizando la eficiencia del panel solar Además el Arduino Uno actúa como controlador central procesando las señales de los sensores y enviando comandos a los servomotores para que se ajusten en tiempo real</p>
+        </section>
+
+
+    </main>
+
+
+
+    <div id="codigo" class="normal-section">
+        <div class="content">
+            <h2>Codigo de Arduino</h2>
+            <p>Sistema de Seguidor Solar 2 Ejes + Interfaz Oled + Sistema Millis()</p>
+            <div class="container-code">
+                <button id="toggleButton">Mostrar Parte del Código</button>
+                <button id="downloadButton">Descargar Codigo</button>
+                <pre id="codeBlock" class="hidden">
+
+/*######################################################################
+   _____                  _     _            _____       _            
+  / ____|                (_)   | |          / ____|     | |           
+ | (___   ___  __ _ _   _ _  __| | ___  _ _| (___   ___ | | __ _ _ __ 
+  \___ \ / _ \/ _` | | | | |/ _` |/ _ \| '__\___ \ / _ \| |/ _` | '__|
+  ____) |  __/ (_| | |_| | | (_| | (_) | |  ____) | (_) | | (_| | |   
+ |_____/ \___|\__, |\__,_|_|\__,_|\___/|_| |_____/ \___/|_|\__,_|_|   
+               __/ |                                                  
+              |___/                                                   
+
+// CODIGO SEGUIDOR SOLAR ARDUINO UNO 
+// Servos X Y - Interfaz Oled - Millis()
+// MultiTech LGM - 6to 2da Division - 2024
+
+######################################################################*/
+
+#include <Wire.h> //Comunicacion I2C
+#include <Adafruit_GFX.h> // Interfaz Dependencia
+#include <Adafruit_SSD1306.h> // Interfaz Dependencia
+#include <Servo.h> // ServoMotores Libreria
+#include <Arduino.h> // Arduino Libreria 
+
+
+//Definicion de Mapa bit (El Dibujo del Sol PantallaOLED)
+#define bitmap_name_height 16 
+#define bitmap_name_width 16
+static const unsigned char PROGMEM bitmap_name[] = {
+ B00000001, B00000000,
+ B01000001, B00000000,
+ B00100000, B00000100,
+ B00000111, B11001000,
+ B00001111, B11100000,
+ B00011111, B11110000,
+ B00011111, B11110000,
+ B11011111, B11110110,
+ B00011111, B11110000,
+ B00011111, B11110000,
+ B00001111, B11100000,
+ B00000111, B11000000,
+ B00010000, B00001000,
+ B00100001, B00000100,
+ B00000001, B00000000,
+ B00000000, B00000000,
+};
+//
+
+
+// L-LEFT = IZQUIERDA
+// R-RIGHT = DERECHA
+//Definicion de LDRS 
+#define LDR_TOP_L A2
+#define LDR_TOP_R A1 
+#define LDR_BOT_L A3
+#define LDR_BOT_R A0
+// Definicion de Ancho y Alto de pantalla y Comunicacion de PantallaOLED
+#define Ancho_Pantalla 128
+#define Alto_Pantalla 64
+#define OLED_RESET -1
+//Modificar dependiendo de La Dirrecion de pantalla Oled I2C
+#define Direccion_Pantalla 0x78
+
+Adafruit_SSD1306 display(Ancho_Pantalla, Alto_Pantalla, &Wire, OLED_RESET);
+
+// Definicion de  Servos
+Servo servohori;
+int servoh = 80;
+//Limites De Servos
+const int servohLimitHigh = 160;
+const int servohLimitLow = 20;
+
+Servo servoverti;
+int servov = 130;
+//Limites De Servos
+const int servovLimitHigh = 159;
+const int servovLimitLow = 20;
+
+//Definicion de LDRS 
+const int ldrtopl = A2; // Top Left LDR - ARRIBA IZQUIERDA
+const int ldrtopr = A1; // Top Right LDR - ARRIBA DERECHA
+const int ldrbotl = A3; // Bottom Left LDR - ABAJO IZQUIERDA
+const int ldrbotr = A0; // Bottom Right LDR - ABAJO DERECHA
+
+unsigned long previousMillis = 0;
+const long interval = 50;
+const int tolerance = 10; // Margin of tolerance to avoid jitter
+
+void Start_Pantalla() {
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  display.setCursor(0,0);
+  display.println("Seguidor Solar");
+  display.display();
+  display.drawLine(0,10,128,10,WHITE);
+
+  display.drawBitmap(5, 15, bitmap_name, bitmap_name_width, bitmap_name_height, WHITE);
+  display.setTextColor(WHITE);
+  display.setCursor(0, 48);
+  display.setTextSize(1);
+  display.print("Servo X:");
+  display.print(servoh);
+  display.setCursor(0, 56);
+  display.print("Servo Y:");
+  display.print(servov);
+  display.display();
+}
+
+void setup() {
+  Serial.begin(9600);  // Baud Estandar
+  servohori.attach(10);
+  servoverti.attach(9);
+  if(!display.begin(SSD1306_SWITCHCAPVCC, Direccion_Pantalla)) { // Cambiado a 0x3C
+    Serial.println(F("Fallo al encontrar el OLED"));
+  }
+  Start_Pantalla();
+  // Mover servos de forma no bloqueante en la inicialización
+  for (int pos = 0; pos <= 80; pos++) {
+    servohori.write(pos);
+    delay(10);
+  }
+
+  for (int pos = 160; pos >= 130; pos--) {
+    servoverti.write(pos);
+    delay(10);
+  }
+
+  delay(3000);
+}
+
+void loop() {
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    servoh = servohori.read();
+    servov = servoverti.read();
+
+    // Obetener Valores de los Sensores LDR
+    int topl = analogRead(LDR_TOP_L);
+    int topr = analogRead(LDR_TOP_R);
+    int botl = analogRead(LDR_BOT_L);
+    int botr = analogRead(LDR_BOT_R);
+
+    //  Calcular Promedios
+    int avgtop = (topl + topr) / 2; // Promedio de LDR ARRIBA
+    int avgbot = (botl + botr) / 2; // Promedio de LDR ABAJO
+    int avgleft = (topl + botl) / 2; // Promedio de LDR IZQUIERDA
+    int avgright = (topr + botr) / 2; // Promedio de LDR DERECHA
+
+    // Ajustar Los Servos mediante los Promedios y Tolerancia
+    adjustServoVertical(avgtop, avgbot, tolerance);
+    adjustServoHorizontal(avgleft, avgright, tolerance);
+
+    // DEBUG de los servos  (opcional)
+    //printServoValues();
+    update_Pantalla();
+  }
+}
+
+void adjustServoVertical(int avgtop, int avgbot, int tolerance) {
+  if (abs(avgtop - avgbot) > tolerance) {
+    if (avgtop < avgbot && servov < servovLimitHigh) {
+      servov++;
+    } else if (avgbot < avgtop && servov > servovLimitLow) {
+      servov--;
+    }
+    servoverti.write(servov);
+  }
+}
+
+void adjustServoHorizontal(int avgleft, int avgright, int tolerance) {
+  if (abs(avgleft - avgright) > tolerance) {
+    if (avgleft > avgright && servoh < servohLimitHigh) {
+      servoh++;
+    } else if (avgright > avgleft && servoh > servohLimitLow) {
+      servoh--;
+    }
+    servohori.write(servoh);
+  }
+}
+/* OPCIONAL 
+void printServoValues() {
+  if (Serial.available() > 0) {
+    return; 
+  }
+  Serial.print("Horizontal Servo: ");
+  Serial.print(servoh);
+  Serial.print(", Vertical Servo: ");
+  Serial.println(servov);
+}
+*/
+
+void update_Pantalla() {
+  // Actualiza solo los valores de los servos
+  display.fillRect(48, 48, 88, 16, BLACK); // Borra solo la parte donde se muestran los valores
+  display.setCursor(48, 48);
+  display.print(servoh);
+  display.setCursor(48, 56);
+  display.print(servov);
+  display.display();
+}
+
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="TextoCodigodesc">
+        <h3>Librerias</h3>
+        <p>Esta es la lista de las Librerias Usadas Para La Programacion del Sistema de Seguidor Solar</p>
+    </div>
+    <section class="codigo">
+        <div class="library-block">
+            <h3>Servo</h3>
+            <p>Sirve para controlar servomotores permitiendo ajustar su posición mediante pulsos PWM</p>
+        </div>
+        <div class="library-block">
+            <h3>Adafruit GFX</h3>
+            <p>Proporciona una base gráfica para pantallas permitiendo dibujar formas texto y gráficos</p>
+        </div>
+        <div class="library-block">
+            <h3>Adafruit SSD1306</h3>
+            <p>Controla pantallas OLED específicas facilitando la comunicación y el manejo de gráficos</p>
+        </div>
+        <div class="library-block">
+            <h3>Wire</h3>
+            <p>Permite la comunicación I2C entre el microcontrolador y otros dispositivos como sensores y pantallas</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 MultiTech</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    
+</body>
+</html>
