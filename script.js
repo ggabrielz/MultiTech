@@ -7,7 +7,7 @@ document.querySelector('.detectable-area').addEventListener('mousemove', functio
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    // Mover el "sol" al cursor
+    // Mover el sol al cursor
     sol.style.left = `${mouseX}px`;
     sol.style.top = `${mouseY}px`;
 
