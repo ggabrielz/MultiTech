@@ -2,14 +2,14 @@
 document.querySelector('.detectable-area').addEventListener('mousemove', function(e) {
     const rect = this.getBoundingClientRect();
     const panel = document.querySelector('.solar-panel');
-    const sun = document.querySelector('.sun');
+    const sol = document.querySelector('.sun');
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    // Mover el sol al cursor
-    sun.style.left = `${mouseX}px`;
-    sun.style.top = `${mouseY}px`;
+    // Mover el "sol" al cursor
+    sol.style.left = `${mouseX}px`;
+    sol.style.top = `${mouseY}px`;
 
     const panelRect = panel.getBoundingClientRect();
     const panelX = panelRect.left + panelRect.width / 2;
