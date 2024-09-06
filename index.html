@@ -201,7 +201,7 @@ const int ldrbotr = A0; // Bottom Right LDR - ABAJO DERECHA
 
 unsigned long previousMillis = 0;
 const long interval = 50;
-const int tolerance = 10; // Margin of tolerance to avoid jitter
+const int tolerance = 10; // Margen de tolerancia para evitar variaciones
 
 void Start_Pantalla() {
   display.clearDisplay();
@@ -275,7 +275,7 @@ void loop() {
     update_Pantalla();
   }
 }
-
+//adjustar servo vertical
 void adjustServoVertical(int avgtop, int avgbot, int tolerance) {
   if (abs(avgtop - avgbot) > tolerance) {
     if (avgtop < avgbot && servov < servovLimitHigh) {
@@ -286,7 +286,7 @@ void adjustServoVertical(int avgtop, int avgbot, int tolerance) {
     servoverti.write(servov);
   }
 }
-
+//adjustar servo horizontal
 void adjustServoHorizontal(int avgleft, int avgright, int tolerance) {
   if (abs(avgleft - avgright) > tolerance) {
     if (avgleft > avgright && servoh < servohLimitHigh) {
@@ -297,7 +297,7 @@ void adjustServoHorizontal(int avgleft, int avgright, int tolerance) {
     servohori.write(servoh);
   }
 }
-/* OPCIONAL 
+/* OPCIONAL ONLY IN DEBUG MODE To Check any Error moving servos
 void printServoValues() {
   if (Serial.available() > 0) {
     return; 
